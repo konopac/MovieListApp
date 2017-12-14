@@ -1,0 +1,17 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>{{movie.title}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+	
+	<h4 text-center>von {{movie.director}}</h4>
+
+	<h5 text-center>Schauspieler:</h5>
+	<p text-center *ngFor="let actor of movie.actors">{{actor}}</p>
+	
+</ion-content>

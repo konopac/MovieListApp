@@ -1,0 +1,42 @@
+<ion-header>
+	<ion-navbar>
+		<ion-title>{{header}}</ion-title>
+	</ion-navbar>
+</ion-header>
+
+<ion-content padding>
+	<ion-list>
+
+		<ion-item>
+			<ion-label floating>Titel</ion-label>
+			<ion-input type="text" [(ngModel)]="movie.title" name="title"></ion-input>
+		</ion-item>
+		
+		<ion-item>
+			<ion-label floating>Regisseur</ion-label>
+			<ion-input type="text" [(ngModel)]="movie.director" name="director"></ion-input>
+		</ion-item>
+
+		<div *ngFor="let actor of movie.actors; let i = index">
+			<ion-item class="actor">
+				<ion-label floating>Schauspieler {{i+1}}</ion-label>
+				<ion-input type="text" [(ngModel)]="movie.actors[i]" name="actor{{i}}"></ion-input>
+			</ion-item>
+			<button ion-fab mini float-right margin-top color="danger" (click)="removeActor(actor)">
+				<ion-icon name="remove"></ion-icon>
+			</button>
+		</div>
+		<div class="addActor">
+			<button ion-fab mini float-right margin-top color="default" (click)="addActor()">
+				<ion-icon name="add"></ion-icon>
+			</button>
+		</div>
+		
+
+	</ion-list>
+		<div class="lastElement"></div>
+	<div class="footer">
+		<cancel-button (click)="cancel()"></cancel-button>
+		<submit-button (click)="save()"></submit-button>
+	</div>
+</ion-content>
